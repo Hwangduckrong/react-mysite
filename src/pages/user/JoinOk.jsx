@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const JoinOk = () => {
     return (
@@ -62,7 +63,7 @@ const JoinOk = () => {
                         <div id="user">
                             <div id="joinOK">
                                 <p className="text-large bold">
-                                    회원가입을 축하합니다.<br /> <br /> <a href="">[로그인하기]</a>
+                                    회원가입을 축하합니다.<br /> <br /><Link to="/loginform">[로그인하기]</Link>
                                 </p>
                             </div>
                             {/* joinOK */}
