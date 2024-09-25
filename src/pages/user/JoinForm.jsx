@@ -119,7 +119,7 @@ const JoinForm = () => {
 
                         <div id="user">
                             <div id="joinForm">
-                                <form action="/joinform" method="get" onSubmit={handleSubmit}>
+                                <form action="" method="" onSubmit={handleSubmit}>
 
                                     {/* 아이디 */}
                                     <div className="form-group">

@@ -3,6 +3,7 @@ import Main from './pages/main/Main';
 import LoginForm from './pages/user/LoginForm';
 import JoinForm from './pages/user/JoinForm';
 import JoinOk from './pages/user/JoinOk';
+import ModifyForm from './pages/user/ModifyForm';
 //css
 import './css/mysite.css'
 
@@ -15,6 +16,7 @@ function App() {
           <Route path='/loginform' element={<LoginForm/>}/>
           <Route path='/joinform' element={<JoinForm/>}/>
           <Route path='/joinok' element={<JoinOk/>}/>
+          <Route path='/modifyform' element={<ModifyForm/>}/>
         </Routes>
       </BrowserRouter>
     </div>

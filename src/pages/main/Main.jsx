@@ -1,10 +1,28 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
 
 // css 전역에 적용되지만 #main 아래만 적용되도록 css를 코딩했음
 import '../../css/main.css'
 
 const Main = () => {
+
+    const [token,setToken] = useState(localStorage.getItem('token'));
+    const[authUser,setauthUser]=useState(JSON.parse(localStorage.getItem('authUser')));
+    
+
+    const handleLogout=()=>{
+        console.log("로그아웃")
+
+        //로컬스토리지에서 삭제
+        localStorage.removeItem('token');
+       
+        //로컬스토리지에서 유저삭제
+        localStorage.removeItem('authUser');
+        
+        setauthUser(null);
+        setToken(null);
+    }
+
     return (
         <>
             <div id="wrap">
@@ -12,7 +30,18 @@ const Main = () => {
                     <h1>
                         <a href="">MySite</a>
                     </h1>
+                    {(token != null) ? (
+                        <ul>
+                            <li> {authUser.name}님 안녕하세요^^</li>
+                            <li><button className='btn_s' onClick={handleLogout}>로그아웃</button></li>
+                            <li><Link to=""> 회원정보수정</Link></li>
+                        </ul>) : (
+                        <ul>
+                            <li><button className='=btn_s'><Link to="/loginform" rel="noreferrer noopener">로그인</Link></button></li>
+                            <li><button className='=btn_s'><Link to="" rel="noreferrer noopener">회원가입</Link></button></li>
+                        </ul>)
 
+                    }
                     {/* 
                     <ul>
                         <li>황일영 님 안녕하세요^^</li>
@@ -20,10 +49,7 @@ const Main = () => {
                         <li><Link to=""> 회원정보수정</Link></li>
                     </ul> 
 			        */}
-                    <ul>
-                        <li><Link to="" rel="noreferrer noopener">로그인</Link></li>
-                        <li><Link to="" rel="noreferrer noopener">회원가입</Link></li>
-                    </ul>
+
                 </div>
                 {/* header */}
 

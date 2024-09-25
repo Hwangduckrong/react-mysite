@@ -1,15 +1,70 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link,useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
+
 
 //css
 import '../../css/user.css'
 
 const LoginForm = () => {
+
+   
+ const navigate=useNavigate();
     /*---라우터 관련-------------------------------*/
     /*---상태관리 변수들(값이 변화면 화면 랜더링 )---*/
+    const [id, setId] = useState("");
+    const [pw, setPw] = useState("");
+
+
     /*---일반 변수--------------------------------*/
     /*---일반 메소드 -----------------------------*/
     /*---훅(useEffect)+이벤트(handle)메소드-------*/
+
+    //아이디 입력
+    let handleId = (e) => {
+        setId(e.target.value);
+    };
+    //비밀번호 입력     
+    let handlePW = (e) => {
+        setPw(e.target.value);
+    };
+    //로그인 버튼을 클릭했을때
+    const handleSubmit =(e)=>{
+        e.preventDefault();
+        //데이터묶기
+        const userVo={
+            id:id,
+            password:pw
+        }
+        console.log(userVo);
+        axios({
+            method: 'post',//리스트 불러오는 거는 get이었음,꼬랑지 안보임               
+            url: 'http://localhost:9000/api/users/login',
+            headers: { "Content-Type": "application/json; charset=utf-8" },  // post put,보낼 때 제이슨으로 보낼꺼야
+            data: userVo,     // put, post,  JSON(자동변환됨)
+            
+            responseType: 'json' //수신타입
+        }).then(response => {
+            console.log(response); //수신데이타
+            console.log(response.data);
+
+            JSON.stringify(response.data.apiData)
+            //해더에서 토큰꺼내기
+           const token = response.headers['authorization'].split (' ')[1]//소문자로 써야한다
+            console.log(token);
+
+            //로컬스토리지에 토큰저장
+            localStorage.setItem("token",token)
+            //로컬스토리지에 authUser 저장
+            localStorage.setItem("authUser",JSON.stringify(response.data.apiData));
+            navigate("/");
+        }).catch(error => {
+            console.log(error);
+        });
+        
+    }
+
     return (
         <>
             <div id="wrap">
@@ -17,7 +72,7 @@ const LoginForm = () => {
                 <div id="header" class="clearfix">
                     <h1>
                         <Link to="">MySite</Link>
-                     </h1>   
+                    </h1>
 
                     {/*
                     <ul>
@@ -27,19 +82,19 @@ const LoginForm = () => {
                     </ul>
                     */}
                     <ul>
-                        <li><a href="" class="btn_s">로그인</a></li>
-                        <li><a href="" class="btn_s">회원가입</a></li>
+                        <li><Link to="" rel="noreferrer noopener" className="btn_s">로그인</Link></li>
+                        <li><Link to="" rel="noreferrer noopener" className="btn_s">회원가입</Link></li>
                     </ul>
 
                 </div>
                 {/*header*/}
 
                 <div id="nav">
-                    <ul class="clearfix">
-                        <li><Link to="">입사지원서</Link></li>
-                        <li><Link to="">게시판</Link></li>
-                        <li><Link to="">갤러리</Link></li>
-                        <li><Link to="">방명록</Link></li>
+                    <ul className="clearfix">
+                        <li><Link to="" rel="noreferrer noopener">입사지원서</Link></li>
+                        <li><Link to="" rel="noreferrer noopener">게시판</Link></li>
+                        <li><Link to="" rel="noreferrer noopener">갤러리</Link></li>
+                        <li><Link to="" rel="noreferrer noopener">방명록</Link></li>
                     </ul>
                 </div>
                 {/*nav*/}
@@ -63,38 +118,40 @@ const LoginForm = () => {
                                 <ul>
                                     <li>홈</li>
                                     <li>회원</li>
-                                    <li class="last">로그인</li>
+                                    <li className="last">로그인</li>
                                 </ul>
                             </div>
-                            <div class="clear"></div>
+                            <div className="clear"></div>
                         </div>
                         {/*content-head*/}
 
                         <div id="user">
                             <div id="loginForm">
-                                <form action="" method="get">
+                                <form action="" method="" onSubmit={handleSubmit}>
 
                                     {/*아이디 */}
-                                    <div class="form-group">
-                                        <label class="form-text" htmlFor="input-uid">아이디</label>
-                                        <input type="text" id="input-uid" name="id" value="" placeholder="아이디를 입력하세요"/>
+                                    <div className="form-group">
+                                        <label className="form-text" htmlFor="input-uid">아이디</label>
+                                        <input type="text" id="input-uid" name="id" value={id} placeholder="아이디를 입력하세요"
+                                            onChange={handleId} />
                                     </div>
 
-                                   {/* 비밀번호 */}
-                                    <div class="form-group">
-                                        <label class="form-text" htmlFor="input-pass">비밀번호</label>
-                                        <input type="text" id="input-pass" name="password" value="" placeholder="비밀번호를 입력하세요"	/>
+                                    {/* 비밀번호 */}
+                                    <div className="form-group">
+                                        <label className="form-text" htmlFor="input-pass">비밀번호</label>
+                                        <input type="text" id="input-pass" name="password" value={pw} placeholder="비밀번호를 입력하세요"
+                                            onChange={handlePW} />
                                     </div>
 
 
                                     {/* 버튼영역 */}
-                                    <div class="button-area">
+                                    <div className="button-area">
                                         <button type="submit" id="btn-submit">로그인</button>
                                     </div>
 
                                 </form>
                             </div>
-                           {/* loginForm */}
+                            {/* loginForm */}
                         </div>
                         {/* user*/}
                     </div>
@@ -104,7 +161,7 @@ const LoginForm = () => {
                 <div id="footer">
                     Copyright ⓒ 2024 황덕룡. All right reserved
                 </div>
-               {/* footer  */}
+                {/* footer  */}
 
             </div>
             {/*wrap */}
