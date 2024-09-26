@@ -20,7 +20,7 @@ const Main = () => {
 
                 <div id="container" className="clearfix">
                     <div id="main">
-                        <img id="profile-img" src="/images/profile.jpg" alt="프로필 이미지" />
+                        <img id="profile-img" src="/images/homepage.jpg" alt="프로필 이미지" />
 
                         <div id="greetings">
                             <p className="text-xlarge">
@@ -36,7 +36,7 @@ const Main = () => {
                                 자바 수업 + 데이터베이스 수업 + 웹프로그래밍 수업<br />
                                 배운 거 있는 거 없는 거 다 합쳐서 만들어 놓은 사이트입니다.<br />
                                 <br />
-                                (배가 많이 고프네요)<br />
+                                (배가 많이 고프네요 끝나고 밥 먹고 공부합시다)<br />
                                 <br /><br />
                                 <Link to="" rel="noreferrer noopener">[방명록에 글 남기기]</Link>
                             </p>

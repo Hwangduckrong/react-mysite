@@ -24,12 +24,12 @@ const Header = () => {
 
             <div id="header" className="clearfix">
                 <h1>
-                    <Link to="" rel="noreferrer noopener">MySite</Link>
+                    <Link to="" rel="noreferrer noopener">HDR</Link>
                 </h1>
                 
                 {(token != null) ? (
                     <ul>
-                        <li> {authUser.name}님 안녕하세요^^</li>
+                        <li> {authUser.name}님 반가워용 ㅎㅅㅎ</li>
                         <li><button className='btn_s' onClick={handleLogout}>로그아웃</button></li>
                         <li><Link to="/modifyform"> 회원정보수정</Link></li>
                     </ul>) : (
