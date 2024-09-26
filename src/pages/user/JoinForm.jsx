@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+//헤더 푸터
+import Footer from '../include/Footer';
+import Header from '../include/Header';
+
 const JoinForm = () => {
     const [name, setName] = useState("");
     const [id, setId] = useState("");
@@ -70,27 +74,8 @@ const JoinForm = () => {
     return (
         <>
             <div id="wrap">
-                <div id="header" className="clearfix">
-                    <h1>
-                        <Link to="">MySite</Link>
-                    </h1>
-
-                    <ul>
-                        <li><a href="" className="btn_s">로그인</a></li>
-                        <li><a href="" className="btn_s">회원가입</a></li>
-                    </ul>
-                </div>
-                {/* header */}
-
-                <div id="nav">
-                    <ul className="clearfix">
-                        <li><Link to="">입사지원서</Link></li>
-                        <li><Link to="">게시판</Link></li>
-                        <li><Link to="">갤러리</Link></li>
-                        <li><Link to="">방명록</Link></li>
-                    </ul>
-                </div>
-                {/* nav */}
+                
+                
 
                 <div id="container" className="clearfix">
                     <div id="aside">

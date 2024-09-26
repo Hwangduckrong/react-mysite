@@ -1,67 +1,22 @@
-import React,{useState} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 // css 전역에 적용되지만 #main 아래만 적용되도록 css를 코딩했음
 import '../../css/main.css'
 
+//헤더 푸터
+import Footer from '../include/Footer';
+import Header from '../include/Header';
 const Main = () => {
 
-    const [token,setToken] = useState(localStorage.getItem('token'));
-    const[authUser,setauthUser]=useState(JSON.parse(localStorage.getItem('authUser')));
-    
-
-    const handleLogout=()=>{
-        console.log("로그아웃")
-
-        //로컬스토리지에서 삭제
-        localStorage.removeItem('token');
-       
-        //로컬스토리지에서 유저삭제
-        localStorage.removeItem('authUser');
-        
-        setauthUser(null);
-        setToken(null);
-    }
+   
 
     return (
         <>
             <div id="wrap">
-                <div id="header" className="clearfix">
-                    <h1>
-                        <a href="">MySite</a>
-                    </h1>
-                    {(token != null) ? (
-                        <ul>
-                            <li> {authUser.name}님 안녕하세요^^</li>
-                            <li><button className='btn_s' onClick={handleLogout}>로그아웃</button></li>
-                            <li><Link to=""> 회원정보수정</Link></li>
-                        </ul>) : (
-                        <ul>
-                            <li><button className='=btn_s'><Link to="/loginform" rel="noreferrer noopener">로그인</Link></button></li>
-                            <li><button className='=btn_s'><Link to="" rel="noreferrer noopener">회원가입</Link></button></li>
-                        </ul>)
+                <Header/>
 
-                    }
-                    {/* 
-                    <ul>
-                        <li>황일영 님 안녕하세요^^</li>
-                        <li><Link to="" rel="noreferrer noopener">로그아웃</Link></li>
-                        <li><Link to=""> 회원정보수정</Link></li>
-                    </ul> 
-			        */}
-
-                </div>
-                {/* header */}
-
-                <div id="nav">
-                    <ul className="clearfix">
-                        <li><Link to="" rel="noreferrer noopener">입사지원서</Link></li>
-                        <li><Link to="" rel="noreferrer noopener">게시판</Link></li>
-                        <li><Link to="" rel="noreferrer noopener">갤러리</Link></li>
-                        <li><Link to="" rel="noreferrer noopener">방명록</Link></li>
-                    </ul>
-                </div>
-                {/* nav */}
+                
 
                 <div id="container" className="clearfix">
                     <div id="main">
@@ -91,11 +46,8 @@ const Main = () => {
                     {/* main */}
 
                     <div className="clear"></div>
-
-                    <div id="footer">
-                        Copyright ⓒ 2024 황덕룡. All right reserved
-                    </div>
-                    {/* footer */}
+                    {/*footer*/}
+                     <Footer/>
                 </div>
                 {/* container */}
             </div>
