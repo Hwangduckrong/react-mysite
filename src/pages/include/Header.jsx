@@ -29,14 +29,17 @@ const Header = () => {
                 
                 {(token != null) ? (
                     <ul>
-                        <li> {authUser.name}님 반가워용 ㅎㅅㅎ</li>
-                        <li><button className='btn_s' onClick={handleLogout}>로그아웃</button></li>
-                        <li><Link to="user/modifyform"> 회원정보수정</Link></li>
+                        <ul>
+                            <li>{authUser.name} 사과해요 나한테</li>
+                            <li><button className="btn_s" onClick={handleLogout}>로그아웃</button></li>
+                            <li><Link to="/user/editform" className="btn_s" rel="noreferrer noopener">회원정보수정</Link></li>
+                        </ul>
                     </ul>) : (
                     <ul>
-                        <li><button className='=btn_s'><Link to="user/loginform" rel="noreferrer noopener">로그인</Link></button></li>
-                        <li><button className='=btn_s'><Link to="user/joinform" rel="noreferrer noopener">회원가입</Link></button></li>
-                    </ul>)
+                    <li><Link to="/user/loginform"  rel="noreferrer noopener" className="btn_s">로그인</Link></li>
+                    <li><Link to="/user/joinform"  rel="noreferrer noopener" className="btn_s">회원가입</Link></li>
+                </ul>
+                )
 
                 }
                
@@ -45,8 +48,8 @@ const Header = () => {
             <div id="nav">
                 <ul className="clearfix">
                     <li><Link to="" rel="noreferrer noopener">입사지원서</Link></li>
-                    <li><Link to="tboard/list" rel="noreferrer noopener">게시판</Link></li>
-                    <li><Link to="" rel="noreferrer noopener">갤러리</Link></li>
+                    <li><Link to="/tboard/list" rel="noreferrer noopener">게시판</Link></li>
+                    <li><Link to="/gallery/list" rel="noreferrer noopener">갤러리</Link></li>
                     <li><Link to="" rel="noreferrer noopener">방명록</Link></li>
                 </ul>
             </div>

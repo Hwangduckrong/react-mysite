@@ -1,52 +1,47 @@
 import React, { useState } from 'react';
-import Footer from '../../include/Footer';
-import Header from '../../include/Header';
+import Footer from '../include/Footer';
+import Header from '../include/Header';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 
 
 
 
 
 
-const Form2 = () => {
+const Form = () => {
     const [profileImg, setProFileImg] = useState();
-    const [content, setContent] = useState();
-
-    const navigate = useNavigate();
-
-    const handleContent = (e) => {
-        setContent(e.target.value);
-    }
-
+    const navigate=useNavigate();
+    
 
     const handleImg = (e) => {
 
-        setProFileImg(e.target.files[0]);
+
+        setProFileImg(e.target.files[0])
     };
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("전송");
 
         const formData = new FormData();
-        formData.append("content", content);
-        formData.append("img", profileImg);
+        formData.append("profileImg", profileImg);
 
         axios({
             method: 'post', // put, post, delete
-            url: 'http://localhost:9000/api/attachs2',
-
+            url: 'http://localhost:9000/api/attachs',
+            
             headers: { "Content-Type": "multipart/form-data" }, //첨부파일
             data: formData, // 첨부파일 multipart방식
             responseType: 'json' //수신타입
         }).then(response => {
             console.log(response); //수신데이타
             console.log(response.data);
-            const savename = response.data.apidata;
+            const savename=response.data.apiData;
+            console.log(savename);
             navigate(`/attach/result?img=${savename}`);
-
+            
             //결과페이지로 이동
-
+        
         }).catch(error => {
             console.log(error);
         });
@@ -66,8 +61,8 @@ const Form2 = () => {
                     <div id="aside">
                         <h2>갤러리</h2>
                         <ul>
-                            <li><a href="#">일반갤러리</a></li>
-                            <li><a href="#">파일첨부연습</a></li>
+                            <li><Link to="" rel="noreferrer noopener">일반갤러리</Link></li>
+                            <li> <Link to="" rel="noreferrer noopener">파일첨부연습</Link></li>
                         </ul>
                     </div>
 
@@ -86,7 +81,7 @@ const Form2 = () => {
 
                         <div id="file">
                             <form
-                                action="d" // 서버의 실제 경로로 수정 필요
+                                action="" // 서버의 실제 경로로 수정 필요
                                 method="post"
                                 onSubmit={handleSubmit}
                             >
@@ -96,9 +91,6 @@ const Form2 = () => {
                                         <col style={{ width: '220px' }} />
                                     </colgroup>
                                     <tr>
-                                        <td className="text-left">
-                                            <input type="text" name="text" value={content} onChange={handleContent} />
-                                        </td>
                                         <td className="text-left">
                                             <input type="file" name="file" onChange={handleImg} />
                                         </td>
@@ -118,4 +110,4 @@ const Form2 = () => {
     );
 };
 
-export default Form2;
+export default Form;

@@ -6,6 +6,8 @@ import axios from 'axios';
 
 //css
 import '../../css/user.css'
+import Header from '../include/Header';
+import Footer from '../include/Footer';
 
 const LoginForm = () => {
 
@@ -69,35 +71,7 @@ const LoginForm = () => {
         <>
             <div id="wrap">
 
-                <div id="header" class="clearfix">
-                    <h1>
-                        <Link to="">MySite</Link>
-                    </h1>
-
-                    {/*
-                    <ul>
-                        <li>황일영 님 안녕하세요^^</li>
-                        <li><a href="" class="btn_s">로그아웃</a></li>
-                        <li><a href="" class="btn_s">회원정보수정</a></li>
-                    </ul>
-                    */}
-                    <ul>
-                        <li><Link to="" rel="noreferrer noopener" className="btn_s">로그인</Link></li>
-                        <li><Link to="" rel="noreferrer noopener" className="btn_s">회원가입</Link></li>
-                    </ul>
-
-                </div>
-                {/*header*/}
-
-                <div id="nav">
-                    <ul className="clearfix">
-                        <li><Link to="" rel="noreferrer noopener">입사지원서</Link></li>
-                        <li><Link to="" rel="noreferrer noopener">게시판</Link></li>
-                        <li><Link to="" rel="noreferrer noopener">갤러리</Link></li>
-                        <li><Link to="" rel="noreferrer noopener">방명록</Link></li>
-                    </ul>
-                </div>
-                {/*nav*/}
+               <Header/>
 
                 <div id="container" class="clearfix">
                     <div id="aside">
@@ -158,9 +132,7 @@ const LoginForm = () => {
                     {/* content*/}
                 </div>
                 {/* container  */}
-                <div id="footer">
-                    Copyright ⓒ 2024 황덕룡. All right reserved
-                </div>
+                <Footer/>
                 {/* footer  */}
 
             </div>

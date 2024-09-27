@@ -20,7 +20,7 @@ const Main = () => {
 
                 <div id="container" className="clearfix">
                     <div id="main">
-                        <img id="profile-img" src="/images/homepage.jpg" alt="프로필 이미지" />
+                        <img id="profile-img" src="/images/jung.jpg" alt="프로필 이미지" />
 
                         <div id="greetings">
                             <p className="text-xlarge">

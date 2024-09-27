@@ -5,9 +5,10 @@ import JoinForm from './pages/user/JoinForm';
 import JoinOk from './pages/user/JoinOk';
 import ModifyForm from './pages/user/ModifyForm';
 import List from './pages/board/List';
-import Form from './pages/board/attach/Form';
-import Form2 from './pages/board/attach/Form2';
-import Result from './pages/board/attach/Result';
+import Form from './pages/attach/Form';
+import Form2 from './pages/attach/Form2';
+import Result from './pages/attach/Result';
+import Gallery from './pages/gallery/Gallery';
 
 //css
 import './css/mysite.css'
@@ -26,6 +27,7 @@ function App() {
           <Route path='attach/form' element={<Form/>}/>
           <Route path='attach/form2' element={<Form2/>}/>
           <Route path='attach/result' element={<Result/>}/>
+          <Route path='gallery/list' element={<Gallery/>}/>
         </Routes>
       </BrowserRouter>
     </div>
