@@ -6,6 +6,7 @@ import JoinOk from './pages/user/JoinOk';
 import ModifyForm from './pages/user/ModifyForm';
 import List from './pages/board/List';
 import Form from './pages/board/attach/Form';
+import Form2 from './pages/board/attach/Form2';
 import Result from './pages/board/attach/Result';
 
 //css
@@ -17,13 +18,14 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='' element={<Main />} />
-          <Route path='/loginform' element={<LoginForm/>}/>
-          <Route path='/joinform' element={<JoinForm/>}/>
-          <Route path='/joinok' element={<JoinOk/>}/>
-          <Route path='/modifyform' element={<ModifyForm/>}/>
-          <Route path='/list' element={<List/>}/>
-          <Route path='/form' element={<Form/>}/>
-          <Route path='/result' element={<Result/>}/>
+          <Route path='user/loginform' element={<LoginForm/>}/>
+          <Route path='user/joinform' element={<JoinForm/>}/>
+          <Route path='user/joinok' element={<JoinOk/>}/>
+          <Route path='user/modifyform' element={<ModifyForm/>}/>
+          <Route path='tboard/list' element={<List/>}/>
+          <Route path='attach/form' element={<Form/>}/>
+          <Route path='attach/form2' element={<Form2/>}/>
+          <Route path='attach/result' element={<Result/>}/>
         </Routes>
       </BrowserRouter>
     </div>

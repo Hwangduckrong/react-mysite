@@ -31,11 +31,11 @@ const Header = () => {
                     <ul>
                         <li> {authUser.name}님 반가워용 ㅎㅅㅎ</li>
                         <li><button className='btn_s' onClick={handleLogout}>로그아웃</button></li>
-                        <li><Link to="/modifyform"> 회원정보수정</Link></li>
+                        <li><Link to="user/modifyform"> 회원정보수정</Link></li>
                     </ul>) : (
                     <ul>
-                        <li><button className='=btn_s'><Link to="/loginform" rel="noreferrer noopener">로그인</Link></button></li>
-                        <li><button className='=btn_s'><Link to="/joinform" rel="noreferrer noopener">회원가입</Link></button></li>
+                        <li><button className='=btn_s'><Link to="user/loginform" rel="noreferrer noopener">로그인</Link></button></li>
+                        <li><button className='=btn_s'><Link to="user/joinform" rel="noreferrer noopener">회원가입</Link></button></li>
                     </ul>)
 
                 }
@@ -45,7 +45,7 @@ const Header = () => {
             <div id="nav">
                 <ul className="clearfix">
                     <li><Link to="" rel="noreferrer noopener">입사지원서</Link></li>
-                    <li><Link to="/list" rel="noreferrer noopener">게시판</Link></li>
+                    <li><Link to="tboard/list" rel="noreferrer noopener">게시판</Link></li>
                     <li><Link to="" rel="noreferrer noopener">갤러리</Link></li>
                     <li><Link to="" rel="noreferrer noopener">방명록</Link></li>
                 </ul>

@@ -2,11 +2,15 @@
 import React from 'react';
 import Header from '../../include/Header';
 import Footer from '../../include/Footer';
+import { Link,useSearchParams } from 'react-router-dom';
 
 import'../../../css/gallery.css'
 
 const Result = () => {
 /*---라우터관련-----*/
+
+const[SearchParams]=useSearchParams();
+const saveName=SearchParams.get('img');
 /*---상태관리 변수들(값이 변화면 화면 랜더링 )--*/
 /*---일반변수--------------------------------*/
 /*---일반메소드 -----------------------------*/
@@ -51,7 +55,7 @@ return (
 				<div id="file">
 					
 						<div>
-							<img id="resultImg" src="${pageContext.request.contextPath}/upload/${requestScope.saveName}"/>
+							<img id="resultImg" src={`http://localhost:9000/upload/${saveName}`}/>
 						</div>
 						<p>
 							<a id="btnUpload" href="">다시 업로드 하기</a>

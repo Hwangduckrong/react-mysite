@@ -2,45 +2,51 @@ import React, { useState } from 'react';
 import Footer from '../../include/Footer';
 import Header from '../../include/Header';
 import axios from 'axios';
-import { Link,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
 
 
 
-const Form = () => {
+const Form2 = () => {
     const [profileImg, setProFileImg] = useState();
-    const navigate=useNavigate();
-    
+    const [content, setContent] = useState();
+
+    const navigate = useNavigate();
+
+    const handleContent = (e) => {
+        setContent(e.target.value);
+    }
+
 
     const handleImg = (e) => {
 
-
-        setProFileImg(e.target.files[0])
+        setProFileImg(e.target.files[0]);
     };
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("전송");
 
         const formData = new FormData();
-        formData.append("profileImg", profileImg);
+        formData.append("content", content);
+        formData.append("img", profileImg);
 
         axios({
             method: 'post', // put, post, delete
-            url: 'http://localhost:9000/api/attachs',
-            
+            url: 'http://localhost:9000/api/attachs2',
+
             headers: { "Content-Type": "multipart/form-data" }, //첨부파일
             data: formData, // 첨부파일 multipart방식
             responseType: 'json' //수신타입
         }).then(response => {
             console.log(response); //수신데이타
             console.log(response.data);
-            const savename=response.data.apiData;
+            const savename = response.data.apidata;
             navigate(`/attach/result?img=${savename}`);
-            
+
             //결과페이지로 이동
-        
+
         }).catch(error => {
             console.log(error);
         });
@@ -91,6 +97,9 @@ const Form = () => {
                                     </colgroup>
                                     <tr>
                                         <td className="text-left">
+                                            <input type="text" name="text" value={content} onChange={handleContent} />
+                                        </td>
+                                        <td className="text-left">
                                             <input type="file" name="file" onChange={handleImg} />
                                         </td>
                                         <td className="text-right">
@@ -109,4 +118,4 @@ const Form = () => {
     );
 };
 
-export default Form;
+export default Form2;
