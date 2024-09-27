@@ -24,7 +24,7 @@ const Header = () => {
 
             <div id="header" className="clearfix">
                 <h1>
-                    <Link to="" rel="noreferrer noopener">HDR</Link>
+                    <Link to="/" rel="noreferrer noopener">HDR</Link>
                 </h1>
                 
                 {(token != null) ? (
@@ -35,7 +35,7 @@ const Header = () => {
                     </ul>) : (
                     <ul>
                         <li><button className='=btn_s'><Link to="/loginform" rel="noreferrer noopener">로그인</Link></button></li>
-                        <li><button className='=btn_s'><Link to="" rel="noreferrer noopener">회원가입</Link></button></li>
+                        <li><button className='=btn_s'><Link to="/joinform" rel="noreferrer noopener">회원가입</Link></button></li>
                     </ul>)
 
                 }
@@ -45,7 +45,7 @@ const Header = () => {
             <div id="nav">
                 <ul className="clearfix">
                     <li><Link to="" rel="noreferrer noopener">입사지원서</Link></li>
-                    <li><Link to="" rel="noreferrer noopener">게시판</Link></li>
+                    <li><Link to="/list" rel="noreferrer noopener">게시판</Link></li>
                     <li><Link to="" rel="noreferrer noopener">갤러리</Link></li>
                     <li><Link to="" rel="noreferrer noopener">방명록</Link></li>
                 </ul>
