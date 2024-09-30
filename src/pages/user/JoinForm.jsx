@@ -86,7 +86,7 @@ const JoinForm = () => {
             if (response.data === 1) {
                 //리다이렉트
 
-                navigate("/joinok");//주소말고 어디로 보낼지 잘 써놔라
+                navigate("/user/joinok");//주소말고 어디로 보낼지 잘 써놔라
             } else
                 alert("등록실패")
 
