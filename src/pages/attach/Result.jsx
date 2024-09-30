@@ -55,7 +55,7 @@ return (
 				<div id="file">
 					
 						<div>
-							<img id="resultImg" src={`http://localhost:9000/upload/${saveName}`}/>
+							<img id="resultImg" src={`${process.env.REACT_APP_API_URL}/upload/${saveName}`}/>
 						</div>
 						<p>
 							<Link to="/attach/form"  rel="noreferrer noopener" id="btnUpload">다시 업로드 하기</Link>

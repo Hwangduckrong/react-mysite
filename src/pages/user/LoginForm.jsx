@@ -42,7 +42,7 @@ const LoginForm = () => {
         console.log(userVo);
         axios({
             method: 'post',//리스트 불러오는 거는 get이었음,꼬랑지 안보임               
-            url: 'http://localhost:9000/api/users/login',
+            url: `${process.env.REACT_APP_API_URL}/api/users/login`,
             headers: { "Content-Type": "application/json; charset=utf-8" },  // post put,보낼 때 제이슨으로 보낼꺼야
             data: userVo,     // put, post,  JSON(자동변환됨)
             

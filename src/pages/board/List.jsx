@@ -17,7 +17,7 @@ const List = () => {
     const getTboardList=()=>{
         axios({
             method: 'get',
-            url: 'http://localhost:9000/api/tboards',
+            url: `${process.env.REACT_APP_API_URL}/api/tboards`,
             responseType: 'json'
         }).then(response=>{
             setTboardList(response.data.apiData);
