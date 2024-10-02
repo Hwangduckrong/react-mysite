@@ -61,8 +61,8 @@ const Form = () => {
                     <div id="aside">
                         <h2>갤러리</h2>
                         <ul>
-                            <li><Link to="" rel="noreferrer noopener">일반갤러리</Link></li>
-                            <li> <Link to="" rel="noreferrer noopener">파일첨부연습</Link></li>
+                            <li><Link to="/gallery/list" rel="noreferrer noopener">일반갤러리</Link></li>
+                            <li> <Link to="/attach/form2" rel="noreferrer noopener">파일첨부연습2</Link></li>
                         </ul>
                     </div>
 

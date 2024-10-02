@@ -32,7 +32,7 @@ const Header = () => {
                         <ul>
                             <li>{authUser.name} 사과해요 나한테</li>
                             <li><button className="btn_s" onClick={handleLogout}>로그아웃</button></li>
-                            <li><Link to="/user/editform" className="btn_s" rel="noreferrer noopener">회원정보수정</Link></li>
+                            <li><Link to="/user/modifyform" className="btn_s" rel="noreferrer noopener">회원정보수정</Link></li>
                         </ul>
                     </ul>) : (
                     <ul>

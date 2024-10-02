@@ -67,19 +67,19 @@ const Form2 = () => {
                     <div id="aside">
                         <h2>갤러리</h2>
                         <ul>
-                            <li><a href="#">일반갤러리</a></li>
-                            <li><a href="#">파일첨부연습</a></li>
+                            <li>  <Link to="/gallery/list" rel="noreferrer noopener">일반갤러리</Link></li>
+                            <li>  <Link to="/attach/form" rel="noreferrer noopener">파일첨부연습</Link></li>
                         </ul>
                     </div>
 
                     <div id="content">
                         <div id="content-head">
-                            <h3>첨부파일연습</h3>
+                            <h3>첨부파일연습2</h3>
                             <div id="location">
                                 <ul>
                                     <li>홈</li>
                                     <li>갤러리</li>
-                                    <li className="last">첨부파일연습</li>
+                                    <li className="last">첨부파일연습2</li>
                                 </ul>
                             </div>
                             <div className="clear"></div>

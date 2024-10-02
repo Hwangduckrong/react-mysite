@@ -2,6 +2,7 @@
 import React from 'react';
 import Header from '../include/Header';
 import Footer from '../include/Footer';
+import { Link } from 'react-router-dom';
 
 const Gallery = () => {
 
@@ -17,8 +18,8 @@ const Gallery = () => {
                <div id="aside">
                   <h2>갤러리</h2>
                   <ul>
-                     <li><a href="">일반갤러리</a></li>
-                     <li><a href="">파일첨부연습</a></li>
+                     <li><Link to="/gallery/list"  rel="noreferrer noopener">일반갤러리</Link></li>
+                     <li><Link to="/attach/form" rel="noreferrer noopener">파일첨부연습</Link></li>
                   </ul>
                </div>
               
