@@ -44,7 +44,7 @@ const JoinForm = () => {
             return;
         }
 
-        axios.get(`http://localhost:9000/api/user/duplicate?id=${id}`)
+        axios.get(`${process.env.REACT_APP_API_URL}/api/user/duplicate?id=${id}`)
             .then(response => {
                 if (response.data) {
                     setIsDuplicate(true); // 중복된 아이디

@@ -9,7 +9,7 @@ import Form from './pages/attach/Form';
 import Form2 from './pages/attach/Form2';
 import Result from './pages/attach/Result';
 import Gallery from './pages/gallery/Gallery';
-
+import Chat from './pages/ai/Chat';
 //css
 import './css/mysite.css'
 
@@ -28,6 +28,7 @@ function App() {
           <Route path='attach/form2' element={<Form2/>}/>
           <Route path='attach/result' element={<Result/>}/>
           <Route path='gallery/list' element={<Gallery/>}/>
+          <Route path='ai/chat' element={<Chat/>}/>
         </Routes>
       </BrowserRouter>
     </div>
